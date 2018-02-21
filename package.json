@@ -1,0 +1,17 @@
+{
+  "name": "f9requestquote",
+  "version": "1.0.0",
+  "description": "Request quote of products",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fervidum/f9requestquote.git"
+  },
+  "author": "Fervidum",
+  "contributors": [
+    "Gilberto Tavares <camaleaun@gmail.com>"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "grunt-wp-i18n": "^1.0.1"
+  }
+}

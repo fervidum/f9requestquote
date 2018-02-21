@@ -1,0 +1,78 @@
+# Copyright (C) 2018 Fervidum
+# This file is distributed under the same license as the F9requestquote package.
+msgid ""
+msgstr ""
+"Project-Id-Version: F9requestquote 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/f9requestquote\n"
+"POT-Creation-Date: 2018-02-21 04:33-0300\n"
+"PO-Revision-Date: 2018-02-21 04:39-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: includes/admin/class-f9requestquote-admin-menus.php:36
+msgid "Request Quote Settings"
+msgstr "Configurações de Orçamento"
+
+#: includes/admin/class-f9requestquote-admin-menus.php:36
+msgid "Request Quote"
+msgstr "Orçamento"
+
+#: includes/admin/class-f9requestquote-admin-settings.php:73
+msgid "Your settings have been saved."
+msgstr "Suas configurações foram salvas."
+
+#: includes/admin/class-f9requestquote-admin-settings.php:344
+msgid "Select a page&hellip;"
+msgstr "Selecione uma página&hellip;"
+
+#: includes/admin/settings/class-f9requestquote-settings-general.php:27
+msgid "General"
+msgstr "Geral"
+
+#: includes/admin/settings/class-f9requestquote-settings-general.php:42
+msgid "Cart page"
+msgstr "Página do orçamento"
+
+#: includes/admin/settings/class-f9requestquote-settings-general.php:43
+msgid "Page contents: [%s]"
+msgstr "Conteúdo da página: [%s]"
+
+#: includes/admin/views/html-admin-settings.php:44
+msgid "Save changes"
+msgstr "Salvar alterações"
+
+#. Plugin Name of the plugin/theme
+msgid "F9requestquote"
+msgstr "F9orçamento"
+
+#. Plugin URI of the plugin/theme
+msgid "https://fervidum.github.io/f9requestquote/"
+msgstr "https://fervidum.github.io/f9requestquote/"
+
+#. Description of the plugin/theme
+msgid "Request quote of products."
+msgstr "Solicitar orçamento de produtos."
+
+#. Author of the plugin/theme
+msgid "Fervidum"
+msgstr "Fervidum"
+
+#. Author URI of the plugin/theme
+msgid "https://fervidum.github.io/"
+msgstr "https://fervidum.github.io/"
+
+#: includes/class-f9requestquote-install.php:112
+msgctxt "Page slug"
+msgid "cart"
+msgstr "orcamento"
+
+#: includes/class-f9requestquote-install.php:113
+msgctxt "Page title"
+msgid "Cart"
+msgstr "Orçamento"

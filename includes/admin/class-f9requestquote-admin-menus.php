@@ -33,7 +33,7 @@ class F9requestquote_Admin_Menus {
 	 * Add menu item.
 	 */
 	public function settings_menu() {
-		$settings_page = add_options_page( __( 'Configurações de Orçamento', 'f9requestquote' ),  __( 'Orçamento', 'f9requestquote' ) , 'manage_options', 'f9requestquote-settings', array( $this, 'settings_page' ) );
+		$settings_page = add_options_page( __( 'Request Quote Settings', 'f9requestquote' ),  __( 'Request Quote', 'f9requestquote' ) , 'manage_options', 'f9requestquote-settings', array( $this, 'settings_page' ) );
 
 		add_action( 'load-' . $settings_page, array( $this, 'settings_page_init' ) );
 	}

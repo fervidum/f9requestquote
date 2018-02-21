@@ -50,8 +50,17 @@ final class F9requestquote {
 	public function __construct() {
 		$this->define_constants();
 		$this->includes();
+		$this->init_hooks();
 
 		do_action( 'f9requestquote_loaded' );
+	}
+
+	/**
+	 * Hook into actions and filters.
+	 */
+	private function init_hooks() {
+		register_activation_hook( F9REQUESTQUOTE_PLUGIN_FILE, array( 'F9requestquote_Install', 'install' ) );
+		add_action( 'init', array( $this, 'init' ), 0 );
 	}
 
 	/**
@@ -110,5 +119,37 @@ final class F9requestquote {
 		if ( $this->is_request( 'admin' ) ) {
 			include_once F9REQUESTQUOTE_ABSPATH . 'includes/admin/class-f9requestquote-admin.php';
 		}
+	}
+
+	/**
+	 * Load Localisation files.
+	 *
+	 * Note: the first-loaded translation file overrides any following ones if the same translation is present.
+	 *
+	 * Locales found in:
+	 *      - WP_LANG_DIR/f9requestquote/f9requestquote-LOCALE.mo
+	 *      - WP_LANG_DIR/plugins/f9requestquote-LOCALE.mo
+	 */
+	public function load_plugin_textdomain() {
+		$locale = is_admin() && function_exists( 'get_user_locale' ) ? get_user_locale() : get_locale();
+		$locale = apply_filters( 'plugin_locale', $locale, 'f9requestquote' );
+
+		unload_textdomain( 'f9requestquote' );
+		load_textdomain( 'f9requestquote', WP_LANG_DIR . '/f9requestquote/f9requestquote-' . $locale . '.mo' );
+		load_plugin_textdomain( 'f9requestquote', false, plugin_basename( dirname( F9REQUESTQUOTE_PLUGIN_FILE ) ) . '/i18n/languages' );
+	}
+
+	/**
+	 * Init F9requestquote when WordPress Initialises.
+	 */
+	public function init() {
+		// Before init action.
+		do_action( 'before_f9requestquote_init' );
+
+		// Set up localisation.
+		$this->load_plugin_textdomain();
+
+		// Init action.
+		do_action( 'f9requestquote_init' );
 	}
 }

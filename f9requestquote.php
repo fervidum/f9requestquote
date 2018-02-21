@@ -1,11 +1,9 @@
 <?php
 /**
  * Plugin Name: F9requestquote
- * Plugin URI: https://fervidum.github.io/f9requestquote/
- * Description: Brazilian cities for various purposes in WordPress.
+ * Description: Request quote of products.
  * Version: 1.0.0
  * Author: Fervidum
- * Author URI: https://fervidum.github.io/
  *
  * Text Domain: f9requestquote
  * Domain Path: /i18n/languages/
