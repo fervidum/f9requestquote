@@ -49,6 +49,7 @@ final class F9requestquote {
 	 */
 	public function __construct() {
 		$this->define_constants();
+		$this->includes();
 
 		do_action( 'f9requestquote_loaded' );
 	}
@@ -66,9 +67,48 @@ final class F9requestquote {
 	 * @param string      $name  Constant name.
 	 * @param string|bool $value Constant value.
 	 */
-	private function define( $name, $value ) {
+	private function define( string $name, $value ) {
 		if ( ! defined( $name ) ) {
 			define( $name, $value );
+		}
+	}
+
+	/**
+	 * What type of request is this?
+	 *
+	 * @param  string $type admin, ajax, cron or frontend.
+	 * @return bool
+	 */
+	private function is_request( string $type ) {
+		switch ( $type ) {
+			case 'admin':
+				return is_admin();
+			case 'ajax':
+				return defined( 'DOING_AJAX' );
+			case 'cron':
+				return defined( 'DOING_CRON' );
+			case 'frontend':
+				return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
+		}
+	}
+
+	/**
+	 * Include required core files used in admin and on the frontend.
+	 */
+	public function includes() {
+		/**
+		 * Class autoloader.
+		 */
+		include_once F9REQUESTQUOTE_ABSPATH . 'includes/class-f9requestquote-autoloader.php';
+
+		/**
+		 * Core classes.
+		 */
+		include_once F9REQUESTQUOTE_ABSPATH . 'includes/f9requestquote-core-functions.php';
+		include_once F9REQUESTQUOTE_ABSPATH . 'includes/class-f9requestquote-install.php';
+
+		if ( $this->is_request( 'admin' ) ) {
+			include_once F9REQUESTQUOTE_ABSPATH . 'includes/admin/class-f9requestquote-admin.php';
 		}
 	}
 }
